@@ -108,7 +108,11 @@ function deleteTask(index){
 // UPDATE => edit
 function updateTask(index) {
     let newTask = prompt('الرجاء ادخال عنوان المهمة الجديد',tasks[index].title)
-    tasks[index].title = newTask
+    if(newTask !== null){
+        tasks[index].title = newTask
+    }
+    
+    
     localStorage.setItem('tasks',JSON.stringify(tasks))
 
     fillTaskOnPage()
