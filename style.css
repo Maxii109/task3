@@ -23,8 +23,8 @@ body{
 .main{
 
     width: 50%;
-    background-color:rgb(3, 3, 100);
     background-image: url(./2.jpg);
+    background-attachment: fixed;
     border-radius: 10px;
     overflow: hidden;
     padding-bottom: 20px;
