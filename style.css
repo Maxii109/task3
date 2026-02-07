@@ -27,7 +27,7 @@ body{
     background-image: url(./2.jpg);
     border-radius: 10px;
     overflow: hidden;
-        padding-bottom: 20px;
+    padding-bottom: 20px;
     
 }
 
@@ -53,7 +53,7 @@ body{
     width: 40px;
     border-radius: 50%;
     font-size: 30px;
-    
+    border: none;
     cursor: pointer;
     
 }
@@ -125,8 +125,8 @@ body{
     }
 
     .btn{
-        height: 35px;
-        width: 35px
+        height: 30px;
+        width: 30px
     }
 
     .add-btn{
@@ -141,8 +141,8 @@ body{
     }
 
     .btn img{
-        height: 20px;
-        width: 20px
+        height: 17px;
+        width: 17px
     }
     /* .add-btn{
         margin-top: 0;
@@ -161,8 +161,21 @@ body{
     }
 
     .info h2{
-        font-size: 14px;
+        font-size: 12px;
     }
+
+    .info span{
+        font-size: 12px;
+    }
+    span img{
+        height: 20px;
+        width: 20px;
+    }
+
+    .content{
+        margin-top: 50px;
+    }
+    
 
 }
 
