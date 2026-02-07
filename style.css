@@ -1,0 +1,188 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@300..700&display=swap');
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Marhey", sans-serif;
+    font-weight: 300;
+    color: white !important;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    /* height: 100vh; */
+} 
+.main{
+
+    width: 50%;
+    background-color:rgb(3, 3, 100);
+    background-image: url(./2.jpg);
+    border-radius: 10px;
+    overflow: hidden;
+        padding-bottom: 20px;
+    
+}
+
+#tasks{
+    max-height: 600px;
+    overflow-y: auto;
+}
+.title{
+    background-color: hsla(0, 0%, 0%, 0.304);
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    color: white;
+    border-bottom: 3px solid black;
+    font-size: 20px;
+    position: relative;
+    
+    
+}
+
+.btn{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 30px;
+    
+    cursor: pointer;
+    
+}
+.btn:active{
+
+    scale:  1.1;
+    /* box-shadow: inset 0 0 5px 3px black; */
+}
+.add-btn{
+    
+    height: 40px !important;
+    width: 40px !important;
+    position: absolute;
+    top:19px;
+    right: 10px;
+
+}
+.task{
+    display: flex;
+    color: white;
+    /* background-color: rgba(0, 0, 0, 0.304); */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(7px);
+    padding: 10px;
+    margin: 15px;
+    border-bottom: 3px solid black ;
+    border-right: 3px solid black ;
+    transition: all 0.3s ease-in-out;
+}
+.done{
+    backdrop-filter: blur(1px);
+    background-color: #eeeeee11;
+}
+.task h2{
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+.task span{
+    font-size:14px ;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+.task:hover{
+    box-shadow: 0 3px 15px rgba(255, 250, 250, 0.527);
+    scale: 1.003;
+
+}
+.info{
+    width: 70%;
+    overflow-x: auto;
+    
+}
+.action{
+    width: 30%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+@media (max-width:1024px) {
+    .main{
+        width: 95%
+    }
+
+    .btn{
+        height: 35px;
+        width: 35px
+    }
+
+    .add-btn{
+    
+        top:12px;
+
+    }
+
+    .task{
+        padding: 5px;
+        margin: 10px;
+    }
+
+    .btn img{
+        height: 20px;
+        width: 20px
+    }
+    /* .add-btn{
+        margin-top: 0;
+    } */
+
+    .info{
+        width: 60%;
+    
+}
+    .action{
+        width: 40%;
+    
+    }
+    .title{
+        font-size: 16px;
+    }
+
+    .info h2{
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

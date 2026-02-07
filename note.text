@@ -1,0 +1,90 @@
+let array = document.getElementById('array')
+let result = document.getElementById('result')
+let input = document.getElementById('input')
+let btn = document.getElementById('btn')
+let del = document.getElementById('del')
+let search = document.getElementById('search')
+
+
+
+let school = ['hamed','ali','osama','husham','moram','noha']
+
+for(let i = 0; i < school.length; i++){
+   
+    
+    array.innerHTML += `${school[i]} -- ` 
+
+}  
+
+btn.addEventListener('click',function(){
+    
+         array.innerHTML = ``
+        school.push(input.value)
+        for(let i = 0; i < school.length; i++){
+                   
+
+        array.innerHTML += `${school[i]}--` 
+    
+        }
+})
+del.addEventListener('click',function(){
+    
+         array.innerHTML = ``
+        school.pop()
+        for(let i = 0; i < school.length; i++){
+                   
+
+        array.innerHTML += `${school[i]}--` 
+    
+        }
+})
+
+search.addEventListener('click',function(){
+    
+    for(let student of school){
+        let name = input.value.toLowerCase()
+        if(name == student){
+
+            result.innerHTML = ` ${name} is <span style='color:red'>in</span> the school`
+            break;
+            }else{
+
+            result.innerHTML = ` ${name} is <span style='color:red'>not</span> in the school`
+
+        }
+    }
+})
+
+
+
+// for(let i of name){
+
+//     console.log(i)
+// }
+
+
+
+
+///////////////////////////////////html 
+
+<body style="display: flex;justify-content: center;">
+
+    <div style="text-align: center;">
+        <h1>Find Students</h1>
+        <input id="input" type="text">
+        <button id="btn">Add</button>
+        <button id="del">Delete</button>
+        <button id="search">search</button>
+        <h2 id="array" style="border:1px dashed;"></h2>
+        <h1 id="result" style="width:700px;height: 40px;border-radius: 10px;background-color: #eee;"></h1>
+    </div>
+
+
+
+
+
+    <script src="script.js">
+        
+        
+    </script>    
+</body>
