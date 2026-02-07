@@ -71,8 +71,8 @@ add.addEventListener('click' ,()=>{
 
     let taskName = prompt('الرجاء ادخال عنوان المهمة')
     let now = new Date()
-    let date = now.getFullYear() + '/' + now.getMonth() + '/' + now.getDay()
-    
+    let date = now.getFullYear() + '/' + (now.getMonth()+1) + '/' + now.getDate()
+    console.log(date)
     let taskObj =  
         {
             'title': taskName,

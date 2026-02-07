@@ -125,13 +125,15 @@ body{
     }
 
     .btn{
-        height: 27px;
-        width: 27px
+        height: 25px;
+        width: 25px
     }
 
     .add-btn{
     
         top:12px;
+        height: 35px !important;
+        width: 35px !important
 
     }
 
@@ -141,23 +143,16 @@ body{
     }
 
     .btn img{
-        height: 15px;
-        width: 15px
+        height: 13px;
+        width: 13px
     }
     /* .add-btn{
         margin-top: 0;
     } */
 
-    .info{
-        width: 60%;
     
-}
-    .action{
-        width: 40%;
-    
-    }
     .title{
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .info h2{
