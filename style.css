@@ -19,6 +19,7 @@ body{
     justify-content: center;
     margin-top: 100px;
     /* height: 100vh; */
+
 } 
 .main{
 
@@ -28,6 +29,8 @@ body{
     border-radius: 10px;
     overflow: hidden;
     padding-bottom: 20px;
+
+
     
 }
 
@@ -36,7 +39,7 @@ body{
     overflow-y: auto;
 }
 .title{
-    background-color: hsla(0, 0%, 0%, 0.604);
+    background-color: hsla(0, 0%, 0%, 0.404);
     width: 100%;
     text-align: center;
     padding: 5px 0;
