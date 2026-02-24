@@ -1,4 +1,11 @@
+let task = document.querySelector('#tasks')
+let addBtn = document.getElementById('add-btn')
+let alltasks = document.getElementsByClassName('.task')
+let input = document.getElementById('input')
 
+window.onload = ()=>{
+    input.focus()
+}
 var tasks = [ 
     {
         'title': 'قراءة كتاب',
@@ -21,118 +28,132 @@ var tasks = [
         'isDone': false
     },
 ]
+if(JSON.parse(localStorage.getItem('element')) != null){
+    tasks = JSON.parse(localStorage.getItem('element'))
 
-let  retrivedTasks = JSON.parse(localStorage.getItem('tasks'))
-if(retrivedTasks == null){
+}else{
 
     tasks = []
-}else{
-    tasks = retrivedTasks
+    
+            
 }
 
 
-
-// READ
-function fillTaskOnPage() {
-    
-    document.getElementById('tasks').innerHTML = ''
+// read
+function readData() {
+    task.innerHTML = ''
     let index = 0
-    tasks.forEach(task =>{
+    tasks.forEach(element => {
+        task.innerHTML += `
         
-        document.getElementById('tasks').innerHTML += 
-        `
-                <div class="task ${task.isDone? 'done' : ''}">
-                    <div class="info">
-                        <h2>${task.title} </h2>
-                        <div class="date">
-                            <span style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="calendar.png" height="25px" width: '25px' alt=""></span> 
-                            <span>${task.date}</span>
+            <div class="task ${element.isDone? "done" : ""}">
+                <div class="info">
+                    <h2>${element.title}</h2>
+                    <div class="date">
+                        <span style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="calendar.png" height="25px" width: '25px' alt=""></span> 
+                        <span>${element.date}</span>
 
-                        </div>
-                    </div>
-                    <div class="action">
-                        
-                        <button onclick = 'deleteTask(${index})' id='delete' class="btn" style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="trash-can_115312.svg" height="25px" width: '25px' alt=""></button>
-                        ${task.isDone? `<button onclick = 'changeColor(${index})' class="btn" style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="cross.svg" height="25px" width: '25px' alt=""></button>` : `<button onclick = 'changeColor(${index})' class="btn" style="display: flex;justify-content: center;align-items: center;font-size: 15px"><img src="check.png" height="25px" width: '25px' alt=""></button>`}
-                        
-                        <button onclick = 'updateTask(${index})' class="btn" style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="edit.svg" height="25px" width: '25px' alt=""></button>
                     </div>
                 </div>
+                <div class="action">
+                            
+                    <button onclick = 'deleteTask(${index})' class="btn" style="color: red;display: flex;justify-content: center;align-items: center"><img src="trash-can_115312.svg" height="25px" width: '25px' alt=""></button>
+                    <button onclick = 'finishedTask(${index})' class="btn" style="color: red;display: flex;justify-content: center;align-items: center"><img src="${element.isDone? 'cross.svg' : 'check.png'}" height="25px" width: '25px' alt=""></button>
+                    <button onclick = 'editTask(${index})' class="btn" style="color: red;display: flex;justify-content: center;align-items: center"><img src="edit.svg" height="25px" width: '25px' alt=""></button>
+                </div>
+            </div>
         `
         index++
-    })
+        
+        
+                
+
+    });
+    document.querySelector('.title span').innerHTML =  tasks.length
+    if(tasks.length == 0){
+            document.getElementById('noData').innerHTML = 'no data to show !!'
+
+        }else{
+            document.getElementById('noData').innerHTML = ''
+
+        } 
 }
-fillTaskOnPage()
+readData()
+        
 
+// add tasks
 
-// CREATE
-let add = document.getElementById('add-btn')
-add.addEventListener('click' ,()=>{
-
-    let taskName = prompt('الرجاء ادخال عنوان المهمة')
-    let now = new Date()
-    let date = now.getFullYear() + '/' + (now.getMonth()+1) + '/' + now.getDate()
-    console.log(date)
-    let taskObj =  
-        {
-            'title': taskName,
+    addBtn.addEventListener('click',() => {
+        
+        let now = new Date()
+        let date = now.getDate() + '/' + (now.getMonth() + 1) + '/' + now.getFullYear()
+        let newTask = {
+            'title': input.value,
             'date': date,
             'isDone': false
         }
+        if(input.value.trim() != ''){
+            tasks.push(newTask)
+            localStorage.setItem('element', JSON.stringify(tasks))
+            readData()
+            input.value = ''
+            
+
+        }
         
-    if(taskName != '' && taskName != null) {
-        tasks.push(taskObj)
-        localStorage.setItem('tasks',JSON.stringify(tasks))
-        fillTaskOnPage()
-    }
-    
 
-    
-})
+        
+        
+    })
 
-// DELETE
 
-function deleteTask(index){
-    let x = confirm('هل انت متاكد من حزف مهمة : ' + tasks[index].title + '؟؟')
-    
-    if(x == true){
+// delete task
+function deleteTask(index) {
+    let confirmMessage = confirm('هل انت متاكد من حزف مهمة: ' + tasks[index].title)
+    if(confirmMessage == true){
         tasks.splice(index,1)
-        localStorage.setItem('tasks',JSON.stringify(tasks))
-        fillTaskOnPage()
+        localStorage.setItem('element', JSON.stringify(tasks))
+        readData()
+        // document.querySelector('.title span').innerHTML =  tasks.length 
+
     }
-    
     
 
 }
 
-// UPDATE => edit
-function updateTask(index) {
-    let newTask = prompt('الرجاء ادخال عنوان المهمة الجديد',tasks[index].title)
-    if(newTask !== null){
-        tasks[index].title = newTask
+// edit task
+
+function editTask(index) {
+    let newTaskName = prompt('ادخل عنوان المهمة الجديد', tasks[index].title)
+    if (newTaskName != null && newTaskName.trim() != ''){
+        tasks[index].title = newTaskName
+        localStorage.setItem('element', JSON.stringify(tasks))
+        readData()
     }
     
-    
-    localStorage.setItem('tasks',JSON.stringify(tasks))
-
-    fillTaskOnPage()
 
 }
 
-// ISDONE
 
-function changeColor(index) {
-    if(tasks[index].isDone == true){
-        tasks[index].isDone = false
-        localStorage.setItem('tasks',JSON.stringify(tasks))
+// completed task
 
-    }else{
+function finishedTask(index) {
+    if(tasks[index].isDone == false){
+
         tasks[index].isDone = true
-        localStorage.setItem('tasks',JSON.stringify(tasks))
+        
+    }else{
+        tasks[index].isDone = false
+        
 
     }
-    
-    fillTaskOnPage()
 
+    localStorage.setItem('element', JSON.stringify(tasks))
+    readData()
+
+    
 }
+
+
+
 

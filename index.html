@@ -13,11 +13,17 @@
     
     <div dir="rtl" class="content">
         <div class="main" id="main">
-            <div class="title">
-                <h1 style="display: inline;">مهامي</h1>
-                <button class="btn add-btn" id="add-btn">+</button>
+            <div class="head">
+                <h1 class="title" style="display: inline;">مهامي <span></span></h1>
+                <div class="left">
+                    <button class="btn add-btn" id="add-btn">+</button>
+                    <input id="input" type="text" placeholder="ادخل عنوان المهمة">
+
+                </div>
             </div>
+            <div  dir="ltr" id="noData"></div>
             <div id="tasks">
+                
                 <div class="task">
                     <div class="info">
                         <h2>قراءة كتاب من وحي الخيال </h2>
@@ -29,9 +35,9 @@
                     </div>
                     <div class="action">
                         
-                        <button class="btn" style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="trash-can_115312.svg" height="25px" width: '25px' alt=""></button>
-                        <button class="btn" style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="check.png" height="25px" width: '25px' alt=""></button>
-                        <button class="btn" style="color: red;display: flex;justify-content: center;align-items: center;font-size: 15px;"><img src="edit.svg" height="25px" width: '25px' alt=""></button>
+                        <button class="btn" style="color: red;display: flex;justify-content: center;align-items: center"><img src="trash-can_115312.svg" height="25px" width: '25px' alt=""></button>
+                        <button class="btn" style="color: red;display: flex;justify-content: center;align-items: center"><img src="check.png" height="25px" width: '25px' alt=""></button>
+                        <button class="btn" style="color: red;display: flex;justify-content: center;align-items: center"><img src="edit.svg" height="25px" width: '25px' alt=""></button>
                     </div>
                 </div>
             </div>

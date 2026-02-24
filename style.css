@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 
 
@@ -10,7 +10,8 @@
 }
 
 body{
-    font-family: "Marhey", sans-serif;
+    font-family: "Cairo", sans-serif;
+    /* font-family: "SN Pro", sans-serif; */
     font-weight: 300;
     color: white !important;
 }
@@ -25,7 +26,11 @@ body{
 
     width: 50%;
     background-image: url(./2.jpg);
-    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+
     border-radius: 10px;
     overflow: hidden;
     padding-bottom: 20px;
@@ -34,19 +39,64 @@ body{
     
 }
 
+#noData{
+text-align: center;
+margin-top: 17px;
+color: #bbb;
+font-size: 18px;
+font-weight: 500;
+
+}
+
 #tasks{
     max-height: 600px;
     overflow-y: auto;
 }
-.title{
+.head{
     background-color: hsla(0, 0%, 0%, 0.404);
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     padding: 5px 0;
     color: white;
     border-bottom: 3px solid black;
     font-size: 20px;
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 0 0;
+    height: 50px;
+    
+    
+}
+
+.head .title{
+    font-size: 25px;
+    font-weight: bold;
+}
+.head .title span{
+    font-size: 25px;
+    color: #bbb;
+}
+
+.head .left{
+    display: flex;
+    width: 60%;
+    /* margin-right: auto; */
+    height: 100%;
+}
+.head .left input{
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    padding: 0 15px;
+    height: 100%;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px);
+    
     
     
 }
@@ -67,14 +117,14 @@ body{
 }
 .add-btn{
     
-    height: 40px !important;
-    width: 40px !important;
-    position: absolute;
-    top:19px;
-    right: 10px;
+    height: 100% !important;
+    width: 50px !important;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0;
+    background-color:rgb(77, 76, 76);
+    color: #fff;
     
 
 }
@@ -136,14 +186,7 @@ body{
         width: 23px
     }
 
-    .add-btn{
     
-        top:15px;
-        height: 32px !important;
-        width: 32px !important;
-        font-size: 20px;
-
-    }
 
     .task{
         padding: 5px;
@@ -155,12 +198,20 @@ body{
         width: 13px;
         
     }
-    /* .add-btn{
-        margin-top: 0;
-    } */
+    .add-btn{
+        font-size: 25px;
+    }
 
-    
-    .title{
+    .head .left{
+        width: 70%;
+    }
+    .head .title{
+        font-size: 19px;
+    }
+    .head .title span{
+        font-size: 16px;
+    }
+    .head .left input{
         font-size: 14px;
     }
 
