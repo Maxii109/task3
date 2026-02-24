@@ -97,8 +97,12 @@ font-weight: 500;
     background-color: rgba(0, 0, 0, 0.37);
     backdrop-filter: blur(10px);
     
-    
-    
+}
+
+.head .left input::placeholder{
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+
 }
 
 .btn{
